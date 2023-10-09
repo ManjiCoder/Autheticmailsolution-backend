@@ -1,13 +1,30 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+const verifier = require('email-exist');
 
 app.get('/', (req, res) => {
-  res.send('Vandra Matram');
+  verifier.verify('bmetha@gmail.com', function (err, info) {
+    if (err) {
+      console.log(err);
+      res.send('error');
+    } else {
+      // res.json({ info: info.info });
+      res.send('Vandra Matram ' + info.info);
+    }
+  });
 });
 
-app.get('/email', (req, res) => {
-  res.send('Vandra Matram');
+app.get('/single', (req, res) => {
+  verifier.verify('manji9@gmail.com', function (err, info) {
+    if (err) {
+      console.log(err);
+      res.send('error');
+    } else {
+      res.json({ info: info.info });
+    }
+  });
 });
 
 app.use('/email', require('./routes/email'));
