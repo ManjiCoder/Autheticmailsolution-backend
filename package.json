@@ -1,0 +1,16 @@
+{
+  "name": "autheticmailsolution-backend",
+  "version": "1.0.0",
+  "description": "Email Scrubbing Service",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon .\"index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "email-exist": "^1.1.7",
+    "express": "^4.18.2"
+  }
+}
